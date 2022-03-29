@@ -1,4 +1,17 @@
-/* Based on this: https://jsfiddle.net/703c96dr/ */
+/*Paragraph fetch*/
+const paragraphLoad = () => {
+    fetch('https://www.poemist.com/api/v1/randompoems')
+        .then(response => response.json())
+        .then(response => {
+            const paraTag = document.querySelector("p")
+            const paraText = response[0].content.replace(/<[^>]*>/g, '');
+            console.log(paraText);
+            paraTag.innerText = paraText;
+        })
+        .catch(err => console.error(err));
+}
+
+/* Word lookup - Based on this: https://jsfiddle.net/703c96dr/ */
 const wordLookupRequest = async (lookup) => {
     if (/^\W/.test(lookup)) {
         return `${lookup} is not a proper word.`
@@ -23,6 +36,45 @@ const wordLookupRequest = async (lookup) => {
         }
     }
 }
+let spans;
+const toggle = document.querySelector("#def-toggle")
+const help = document.querySelector("#help")
+const p = document.getElementsByTagName("p");
+/*Remove Spans and toggle OFF*/
+const toggleOFF = () => {
+    help.classList.add('hidden')
+    toggle.checked = false;
+    for (let i = 0; i < p.length; i++) {
+        if (p[i] == undefined) continue;
+        p[i].innerHTML = p[i].innerHTML.replace(/<[^>]*>/g, '');
+    }
+}
+/*Break paragraph into wordspans and add listeners*/
+toggle.onchange = () => {
+    if (toggle.checked) {
+        help.classList.remove('hidden')
+        for (let i = 0; i < p.length; i++) {
+            console.log(p[i]);
+            if (p[i] == undefined) continue;
+            if (p[i] === '<br>') continue;
+            p[i].innerHTML = p[i].innerHTML.replace(/(\b\w*[']*[^<br\\/>]\b)/g, '<span>$1</span>'); //get words with 's and ignore <br>s
+            spans = p[i].getElementsByTagName("span")
+            for (let a = 0; a < spans.length; a++) {
+                spans[a].onmouseover = onmouseoverspan;
+                spans[a].onmouseout = onmouseoutspan;
+                spans[a].onclick = onclickspan;
+            }
+        }
+    } else {
+        toggleOFF();
+    }
+};
+/*Load a new paragraph*/
+const newBtn = document.querySelector(".new-btn");
+newBtn.addEventListener('click', (e) => {
+    toggleOFF();
+    paragraphLoad();
+});
 /*highlight the word*/
 function onmouseoverspan() {
     this.style.backgroundColor = "yellow";
@@ -43,29 +95,3 @@ function onclickspan(e) {
         word.includes("Sorry, we could not find ") ? tag.classList.add('tooltip', 'notfound') : tag.classList.add('tooltip')
     })
 }
-/*Break paragraph into wordspans and add listeners*/
-let spans;
-const toggle = document.querySelector("#def-toggle")
-const help = document.querySelector("#help")
-const p = document.getElementsByTagName("p");
-toggle.onchange = () => {
-    if (toggle.checked) {
-        help.classList.remove('hidden')
-        for (let i = 0; i < p.length; i++) {
-            if (p[i] == undefined) continue;
-            p[i].innerHTML = p[i].innerHTML.replace(/\b(\w+)\b/g, '<span>$1</span>');
-            spans = p[i].getElementsByTagName("span")
-            for (let a = 0; a < spans.length; a++) {
-                spans[a].onmouseover = onmouseoverspan;
-                spans[a].onmouseout = onmouseoutspan;
-                spans[a].onclick = onclickspan;
-            }
-        }
-    } else {
-        help.classList.add('hidden')
-        for (let i = 0; i < p.length; i++) {
-            if (p[i] == undefined) continue;
-            p[i].innerHTML = p[i].innerHTML.replace(/<[^>]*>/g, '');
-        }
-    }
-};

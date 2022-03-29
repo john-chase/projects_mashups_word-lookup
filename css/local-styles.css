@@ -1,17 +1,9 @@
 /*From https://codepen.io/marcwiethe/pen/JprZvJ*/
 
 main {
-    margin: 1rem;
+    margin: 2rem 5rem 10rem 5rem;
 }
 
-.defs {
-    padding: 0 0 12px 4px;
-    text-align: center;
-    color: dodgerblue;
-    font-weight: bold;
-    font-style: italic;
-    margin: 0.5rem 0;
-}
 
 p {
     border: 1px solid dodgerblue;
@@ -23,6 +15,19 @@ p {
 p span:hover {
     background: yellow;
     cursor: pointer;
+}
+
+.defs {
+    padding: 0 0 12px 4px;
+    text-align: center;
+    color: dodgerblue;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+.emph {
+    font-style: italic;
 }
 
 /*TOOLTIPS*/
@@ -90,6 +95,15 @@ p span:hover {
 
 .tooltip:hover:after {
     transform: translate3d(-50%, calc(-100% - 16px), 0);
+}
+
+.tooltip .tooltip-content::after {
+    background: #05a8ff;
+    content: "";
+    height: 10px;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 10px;
 }
 
 /*TOGGLE SWITCH*/
