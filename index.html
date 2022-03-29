@@ -2,32 +2,49 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="js/index.js" defer></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="theme-color" content="#0099D8">
+  <meta name="title" content="Vanilla JS Word Lookup" />
+  <meta name="description" content="One-Click Dictionary Word Lookup Tooltips Demo" />
+  <meta name="language" content="EN-US" />
+  <meta name="creator" content="John Chase - the Art of Tech, LLC" />
+  <meta name="created" content="2022-03-29" />
+  <title>Vanilla JS Word Lookup</title>
+  <link rel="icon" href="../../favicon.ico?v=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6029e1b20c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/global-styles.css">
+  <link rel="stylesheet" href="/css/local-styles.css">
   <link rel="stylesheet" href="css/local-styles.css">
+  <script src="js/index.js" defer></script>
 </head>
 
 <body>
-  <h1>One-Click Dictionary Word Lookup Tooltips Demo</h1>
-  <label class="switch">
-    <span>Definitions</span>
-    <input id="def-toggle" type="checkbox">
-    <span id="help" class="hidden">Hover over a word to highlight, then click/tap to show definition tooltip.</span>
-  </label>
-  <p id="parent">One morning, when Gregor Samsa woke from troubled dreams, he found himself
-    transformed in his bed into
-    a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly,
-    slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready
-    to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about
-    helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room
-    although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay
-    spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently
-    cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat
-    and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer.
-    Gregor then turned to look out the window at the dull weather.</p>
+  <!--#include virtual="/includes/vanilla-js-word-lookup-header.html"-->
+  <main>
+    <h2>One-Click Dictionary Tooltips Demo</h2>
+    <label class="switch">
+      <span class="defs">Definitions</span>
+      <input id="def-toggle" type="checkbox">
+      <span id="help" class="hidden">Hover over a word to highlight, then click/tap to show definition tooltip.</span>
+    </label>
+    <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself
+      transformed in his bed into
+      a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown
+      belly,
+      slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready
+      to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about
+      helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room
+      although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay
+      spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently
+      cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat
+      and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer.
+      Gregor then turned to look out the window at the dull weather.</p>
+  </main>
+  <!--#include virtual="/includes/footer.html"-->
 </body>
 
 </html>

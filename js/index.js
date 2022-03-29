@@ -30,7 +30,7 @@ function onmouseoverspan() {
 /*unhighlight word, remove tooltip*/
 function onmouseoutspan() {
     this.style.backgroundColor = "transparent";
-    this.classList.remove('tooltip', 'notfound');
+    this.classList.remove('tooltip');
 }
 /*fetch word, then add data/class*/
 function onclickspan(e) {

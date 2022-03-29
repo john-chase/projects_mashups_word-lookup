@@ -1,6 +1,26 @@
 /*From https://codepen.io/marcwiethe/pen/JprZvJ*/
 
-p#parent span:hover {
+main {
+    margin: 1rem;
+}
+
+.defs {
+    padding: 0 0 12px 4px;
+    text-align: center;
+    color: dodgerblue;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+p {
+    border: 1px solid dodgerblue;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+p span:hover {
     background: yellow;
     cursor: pointer;
 }
