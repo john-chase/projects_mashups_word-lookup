@@ -1,14 +1,25 @@
+const newBtn = document.querySelector(".new-btn");
 /*Paragraph fetch*/
 const paragraphLoad = () => {
+    const paraTag = document.querySelector("p")
     fetch('https://www.poemist.com/api/v1/randompoems')
-        .then(response => response.json())
         .then(response => {
-            const paraTag = document.querySelector("p")
+            if (response.status >= 200 && response.status <= 299) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then(response => {
             const paraText = response[0].content.replace(/<[^>]*>/g, '');
             console.log(paraText);
             paraTag.innerText = paraText;
+            newBtn.innerText = "Load New Content";
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            console.error(err)
+            paraTag.innerText = err
+        });
 }
 
 /* Word lookup - Based on this: https://jsfiddle.net/703c96dr/ */
@@ -46,7 +57,7 @@ const toggleOFF = () => {
     toggle.checked = false;
     for (let i = 0; i < p.length; i++) {
         if (p[i] == undefined) continue;
-        p[i].innerHTML = p[i].innerHTML.replace(/<[^>]*>/g, '');
+        p[i].innerHTML = p[i].innerHTML.replace(/<[^>^br]*>/g, '');
     }
 }
 /*Break paragraph into wordspans and add listeners*/
@@ -70,10 +81,10 @@ toggle.onchange = () => {
     }
 };
 /*Load a new paragraph*/
-const newBtn = document.querySelector(".new-btn");
 newBtn.addEventListener('click', (e) => {
+    newBtn.innerText = "Please wait..."
     toggleOFF();
-    paragraphLoad();
+    paragraphLoad()
 });
 /*highlight the word*/
 function onmouseoverspan() {
