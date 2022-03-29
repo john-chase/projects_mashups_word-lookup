@@ -1,5 +1,5 @@
 const newBtn = document.querySelector(".new-btn");
-/*Paragraph fetch*/
+/*Paragraph fetch !!!Need one that only returns English*/
 const paragraphLoad = () => {
     const paraTag = document.querySelector("p")
     fetch('https://www.poemist.com/api/v1/randompoems')
