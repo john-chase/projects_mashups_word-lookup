@@ -1,4 +1,106 @@
+/*From https://codepen.io/marcwiethe/pen/JprZvJ*/
+
 p#parent span:hover {
     background: yellow;
     cursor: pointer;
+}
+
+/*TOOLTIPS*/
+.tooltip {
+    position: relative;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: grabbing;
+}
+
+.tooltip:before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    left: 50%;
+    transform: translate3d(-50%, 0%, 0);
+    transition: all 0.3s ease;
+    transition-delay: 1.2s;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #282828 transparent transparent transparent;
+}
+
+.tooltip:after {
+    text-transform: none;
+    content: attr(data-tooltip);
+    font-size: 14px;
+    position: absolute;
+    color: #fff;
+    background: dodgerblue;
+    padding: 8px 12px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 200px;
+    opacity: 0;
+    pointer-events: none;
+    left: 50%;
+    top: 0;
+    border-radius: 4px;
+    transform: translate3d(-50%, 0%, 0);
+    transition: all 0.3s ease;
+    transition-delay: 1.2s;
+}
+
+.notfound:after {
+    background: red;
+}
+
+.tooltip:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.tooltip:hover:before,
+.tooltip:hover:after {
+    opacity: 1;
+}
+
+.tooltip:hover:before {
+    transform: translate3d(-50%, calc(-100% - 18px), 0);
+}
+
+.tooltip:hover:after {
+    transform: translate3d(-50%, calc(-100% - 16px), 0);
+}
+
+/*TOGGLE SWITCH*/
+.hidden {
+    display: none;
+}
+
+input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 64px;
+    padding-left: 33px;
+    margin: 0;
+    border-radius: 16px;
+    background: radial-gradient(circle 12px, white 100%, transparent calc(100% + 1px)) #ccc -16px;
+    transition: 0.3s ease-in-out;
+}
+
+input::before {
+    content: "OFF";
+    font: bold 12px/32px Verdana;
+    color: white;
+    text-shadow: 0 1px black;
+}
+
+:checked {
+    padding-left: 8px;
+    background-color: rgb(37, 151, 62);
+    background-position: 16px;
+}
+
+:checked::before {
+    content: "ON";
 }
