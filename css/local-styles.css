@@ -1,0 +1,4 @@
+p#parent span:hover {
+    background: yellow;
+    cursor: pointer;
+}
