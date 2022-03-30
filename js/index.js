@@ -119,13 +119,13 @@ const paragraphLoad = (selection) => {
                     paraTag.innerText = `${paraText} - ${paraAuth}`;
                     break;
             }
-            newBtn.innerText = "Load New Content";
+            newBtn.innerText = "Load Content";
             newBtn.classList.add("hidden")
         })
         .catch(err => {
             console.error(err)
             paraTag.innerText = err
-            newBtn.innerText = "Load New Content";
+            newBtn.innerText = "Load Content";
         });
 }
 
