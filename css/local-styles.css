@@ -4,8 +4,7 @@ main {
     margin: 2rem 5rem 10rem 5rem;
 }
 
-
-p {
+.p {
     border: 1px solid dodgerblue;
     border-radius: .5rem;
     padding: .5rem;
@@ -28,6 +27,17 @@ p span:hover {
 
 .emph {
     font-style: italic;
+}
+
+.sel {
+    height: 1.3rem;
+}
+
+button {
+    color: white;
+    background-color: dodgerblue;
+    box-shadow: none;
+    border-radius: 2px;
 }
 
 /*TOOLTIPS*/
