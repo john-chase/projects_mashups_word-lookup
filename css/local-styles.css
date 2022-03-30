@@ -1,7 +1,11 @@
 /*From https://codepen.io/marcwiethe/pen/JprZvJ*/
 
 main {
-    margin: 2rem 5rem 10rem 5rem;
+    margin: 1rem 3rem 10rem 3rem;
+}
+
+h2 {
+    font-size: 1.1em;
 }
 
 .p {
@@ -61,13 +65,13 @@ button {
     height: 0;
     border-style: solid;
     border-width: 10px 10px 0 10px;
-    border-color: #282828 transparent transparent transparent;
+    border-color: dodgerblue transparent transparent transparent;
 }
 
 .tooltip:after {
     text-transform: none;
     content: attr(data-tooltip);
-    font-size: 14px;
+    font-size: 11px;
     position: absolute;
     color: #fff;
     background: dodgerblue;
@@ -90,6 +94,10 @@ button {
     background: red;
 }
 
+.notfound:before {
+    border-color: red transparent transparent transparent;
+}
+
 .tooltip:hover {
     background-color: rgba(0, 0, 0, 0.12);
 }
@@ -100,15 +108,15 @@ button {
 }
 
 .tooltip:hover:before {
-    transform: translate3d(-50%, calc(-100% - 18px), 0);
+    transform: translate3d(-50%, calc(-50% - 4px), 0);
 }
 
 .tooltip:hover:after {
-    transform: translate3d(-50%, calc(-100% - 16px), 0);
+    transform: translate3d(-50%, calc(-80% - 16px), 0);
 }
 
 .tooltip .tooltip-content::after {
-    background: #05a8ff;
+    background-color: #05a8ff;
     content: "";
     height: 10px;
     position: absolute;
@@ -147,4 +155,10 @@ input::before {
 
 :checked::before {
     content: "ON";
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        margin: 2rem 5rem 10rem 5rem;
+    }
 }
