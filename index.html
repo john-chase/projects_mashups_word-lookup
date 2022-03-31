@@ -23,19 +23,21 @@
   </script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <!-- <script src="https://babeljs.io/docs/en/babel-standalone"></script> -->
-  <script src="js/index.js" data-type="module" defer></script>
+  <script src="js/index-babel.js" data-type="module" defer></script>
 </head>
 
 <body>
   <!--#include virtual="/includes/mashups-word-lookup-header.html"-->
   <main>
     <h2>One-Click Dictionary Tooltips Mashup Demo</h2>
-    <label class="switch">
-      <span class="defs">Definitions</span>&nbsp;
-      <input id="def-toggle" type="checkbox">
-      <span id="help" class="hidden emph">Hover over a word to highlight, then click/tap to show definition
-        tooltip.</span>
-    </label>
+    <div>
+      <label class="switch">
+        <span class="defs">Definitions</span>&nbsp;
+        <input id="def-toggle" type="checkbox">
+        <span id="help" class="hidden emph">Hover over a word to highlight, then click/tap to show definition
+          tooltip.</span>
+      </label>
+    </div>
     <p>Choose an API from the options below to load random content, then enable Definitions above to lookup word
       meanings.</p>
     <select name="api" id="api-sel" class="sel">
