@@ -17,7 +17,10 @@
   <link rel="stylesheet" href="/css/global-styles.css">
   <link rel="stylesheet" href="/css/local-styles.css">
   <link rel="stylesheet" href="css/local-styles.css">
-  <script src="js/index.js" defer></script>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch&flags=gated"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- https://babeljs.io/docs/en/babel-standalone -->
+  <script src="js/main.js" type="text/babel" defer></script>
 </head>
 
 <body>
