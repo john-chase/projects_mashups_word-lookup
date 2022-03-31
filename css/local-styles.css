@@ -161,4 +161,8 @@ input::before {
     main {
         margin: 2rem 5rem 10rem 5rem;
     }
+
+    h2 {
+        font-size: 1.5em;
+    }
 }

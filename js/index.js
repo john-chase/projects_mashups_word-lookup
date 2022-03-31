@@ -5,7 +5,7 @@ function getSign() {
     const date = new Date;
     const today = `${date.getMonth()+1}/${date.getDate()}`
     let sign = ''
-    console.log(today.split("/")[0], today.split("/")[1]);
+    // console.log(today.split("/")[0], today.split("/")[1]);
     // January 20–February 18 
     if ((today.split("/")[0] === "1" && today.split("/")[1] >= 20) || (today.split("/")[0] === "2" && today.split("/")[1] <= 18)) {
         sign = 'Aquarius'
@@ -54,13 +54,13 @@ function getSign() {
     if ((today.split("/")[0] === "12" && today.split("/")[1] >= 22) || (today.split("/")[0] === "1" && today.split("/")[1] <= 19)) {
         sign = 'Capricornus'
     }
-    console.log("Sign:" + sign);
+    // console.log("Sign:" + sign);
     return sign
 }
 /*Paragraph fetch*/
 const paragraphLoad = (selection) => {
     const paraTag = document.querySelector("p")
-    console.log(selection);
+    // console.log(selection);
     let url, options = {}
     switch (selection) {
         case "1":
@@ -82,10 +82,10 @@ const paragraphLoad = (selection) => {
             url = 'https://fakerapi.it/api/v1/texts?_quantity=1&_characters=500'
             break;
     }
-    console.log(url, options);
+    // console.log(url, options);
     fetch(url, options)
         .then(response => {
-            console.log(response.status);
+            // console.log(response.status);
             if (response.status >= 200 && response.status <= 299) {
                 return response.json();
             } else {
@@ -94,7 +94,7 @@ const paragraphLoad = (selection) => {
         })
         .then(data => {
             let paraText
-            console.log(data);
+            // console.log(data);
             switch (selection) {
                 case "1":
                     paraText = data[0];
@@ -166,14 +166,14 @@ const help = document.querySelector("#help")
 const p = document.getElementsByTagName("p");
 /*Load a new paragraph*/
 newBtn.addEventListener('click', (e) => {
-    console.log("EL newBtn");
+    // console.log("EL newBtn");
     newBtn.innerText = "Please wait..."
     toggleOFF();
     paragraphLoad(sel)
 });
 /*Select a new api*/
 apiSel.addEventListener('change', (e) => {
-    console.log("EL apiSel");
+    // console.log("EL apiSel");
     sel = e.target.options[e.target.selectedIndex].value
     if (sel !== "0") {
         newBtn.classList.remove('hidden')
@@ -194,7 +194,7 @@ toggle.onchange = () => {
         help.classList.remove('hidden')
         for (let i = 0; i < p.length; i++) {
             p[i].classList.add("p")
-            console.log(p[i]);
+            // console.log(p[i]);
             if (p[i] == undefined) continue;
             if (p[i] === '<br>') continue;
             p[i].innerHTML = p[i].innerHTML.replace(/(\b\w*[^<br\\/>'\-\s]\b)/g, '<span>$1</span>'); //get words on boundaries and ignore <br>s and punct
@@ -225,7 +225,7 @@ function onmouseoutspan() {
 function onclickspan(e) {
     // wordLookupRequest("<script>alert('gotcha!')</script>").then((resolvedValue) => console.log(resolvedValue))
     const tag = e.target;
-    console.log(tag);
+    // console.log(tag);
     wordLookupRequest(e.target.innerText).then((word) => {
         // console.log(word, tag)
         tag.setAttribute('data-tooltip', word)

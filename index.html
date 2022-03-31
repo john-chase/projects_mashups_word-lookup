@@ -17,14 +17,17 @@
   <link rel="stylesheet" href="/css/global-styles.css">
   <link rel="stylesheet" href="/css/local-styles.css">
   <link rel="stylesheet" href="css/local-styles.css">
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch&flags=gated"></script>
+  <!-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch&flags=gated"></script> -->
+  <script
+    src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.classList%2CMediaQueryList.prototype.addEventListener%2Cdocument.querySelector&flags=gated">
+  </script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- https://babeljs.io/docs/en/babel-standalone -->
-  <script src="js/main.js" type="text/babel" defer></script>
+  <!-- <script src="https://babeljs.io/docs/en/babel-standalone"></script> -->
+  <script src="js/index.js" data-type="module" defer></script>
 </head>
 
 <body>
-  <!--#include virtual="/includes/vanilla-js-word-lookup-header.html"-->
+  <!--#include virtual="/includes/mashups-word-lookup-header.html"-->
   <main>
     <h2>One-Click Dictionary Tooltips Mashup Demo</h2>
     <label class="switch">
@@ -45,6 +48,7 @@
     </select>
     <button class="new-btn hidden">Load Content</button>
     <section style="margin-top:2rem;">
+      <h3 style="text-align:left">Notes</h3>
       This application makes use of the <a href="https://dictionaryapi.dev/">Free Dictionary API</a> to define words and
       free no-key APIs for random content:<br>
       <ul>
@@ -59,7 +63,7 @@
         <li>Faker Texts loaded from <a href="https://fakerapi.it/en" target="_blank">Faker API</a></li>
       </ul>
       There are mobile device apps that accomplish this functionality, but my goal is to produce a bookmarklet that
-      would enable lookups for any webpage.
+      would enable lookups for any webpage paragraph content.
     </section>
   </main>
   <!--#include virtual="/includes/footer.html" -->
