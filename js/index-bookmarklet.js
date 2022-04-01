@@ -23,54 +23,29 @@
     defHelp.innerText = "Hover over a word to highlight, then click/tap to show definition tooltip.";
     defSwitch.appendChild(defHelp);
     let spans;
-    const p = document.getElementsByTagName("p");
-    /*ignore html*/
-    const ignoreHTML = (line) => {
-        console.log(line);
-        let html = "";
-        let words = ""
-        let started = false;
-        [...line].forEach(char => {
-            //found an opener
-            if (char === "<") {
-                started = true;
-            }
-            //found a closer
-            if (char === ">") {
-                started = false;
-            }
-            //output html
-            if (started || char === ">") {
-                html += char;
-                //output words
-            } else {
-                words += char;
-            }
+    let p = document.getElementsByTagName("p");
+    let originalP = [];
+    /*break p into words, wrap with spans*/
+    const addSpans = (paragraph) => {
+        words = paragraph.split(" ");
+        let newParagraph = '';
+        words.forEach(word => {
+            newParagraph += `<span>${word}</span> `
         });
-        console.log("HTML:", html);
-        console.log("WORDS:", words);
-        wordsArray = words.split(" ");
-        let newLine = '';
-        wordsArray.forEach(word => {
-            newLine += `<span>${word}</span> `
-        });
-        return newLine;
+        return newParagraph;
     }
-    /*restore html*/
-    const restoreHTML = (line) => {
-        let newLine = line.replace(/<span.+">/gm, '').replace(/<span>/gm, '').replace(/<\/span>/gm, '');
-        // console.log(newLine);
-        return newLine;
-    }
-    /*break paragraph into wordspans and add listeners*/
+    /*add listeners*/
     defToggle.onchange = () => {
         if (defToggle.checked) {
             /*add spans and toggle ON*/
             defHelp.classList.remove('hidden');
             for (let i = 0; i < p.length; i++) {
+                if (p[i] == undefined || p[i].innerText === '') continue;
                 p[i].classList.add("p");
-                if (p[i] == undefined || p[i].innerHTML === '') continue;
-                p[i].innerHTML = ignoreHTML(p[i].innerHTML)
+                // console.log("innerHTML: ", p[i].innerHTML);
+                // console.log("innerText: ", p[i].innerText);
+                originalP.push(p[i].innerHTML);
+                p[i].innerHTML = addSpans(p[i].innerText)
                 spans = p[i].getElementsByTagName("span");
                 for (let a = 0; a < spans.length; a++) {
                     spans[a].onmouseover = onmouseoverspan;
@@ -82,9 +57,9 @@
             /*remove spans and toggle OFF*/
             defHelp.classList.add('hidden');
             for (let i = 0; i < p.length; i++) {
-                if (p[i] == undefined) continue;
+                if (p[i] == undefined || p[i].innerText === '') continue;
                 p[i].classList.remove("p");
-                p[i].innerHTML = restoreHTML(p[i].innerHTML)
+                p[i].innerHTML = originalP[i]
             }
         }
     };
