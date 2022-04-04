@@ -5,7 +5,7 @@
     padding: .5rem;
     margin: 1rem 5rem;
     font-size: 15px;
-    line-height: 1.2;
+    line-height: 21px;
 }
 
 .hidden {
@@ -18,6 +18,9 @@
     position: fixed;
     z-index: 99999999;
     min-width: 100%;
+    height: 32px;
+    top: 0;
+    text-align: left;
 }
 
 .def-span {
@@ -62,6 +65,7 @@
     text-transform: none;
     content: attr(data-tooltip);
     font-size: 11px;
+    line-height: 18px;
     position: absolute;
     color: white;
     font-weight: bold;
@@ -123,7 +127,7 @@ input[type=checkbox],
     margin: 0;
     -webkit-appearance: none;
     appearance: none;
-    padding-left: 30px;
+    padding: 0 0 0 30px;
     border-radius: 16px;
     background: radial-gradient(circle 12px, white 100%, transparent calc(100% + 1px)) #ccc -16px;
     transition: 0.3s ease-in-out;
@@ -143,7 +147,7 @@ input[type=checkbox],
 }
 
 .def-input:checked {
-    padding-left: 8px;
+    padding: 0 0 0 8px;
     background-color: rgb(37, 151, 62);
     background-position: 16px;
     height: 32px;
