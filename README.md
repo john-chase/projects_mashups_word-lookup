@@ -6,4 +6,5 @@
 - [Daily Horoscope Aztro API](https://aztro.sameerkumar.website/)
 - [Faker Texts - Faker API](https://fakerapi.it/en)
 ---
+See the [example](https://projects.theartoftechllc.com/mashups/word-lookup/index.html)
 Get the [Word Lookup Bookmarklet](https://github.com/john-chase/projects_mashups_word-lookup-bookmarklet)!
