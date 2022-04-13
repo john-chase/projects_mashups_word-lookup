@@ -52,11 +52,11 @@ button {
     transition: all 0.3s ease;
     text-decoration: none;
     cursor: grabbing;
+    z-index: 999999;
+    box-sizing: border-box;
 }
-
-.tooltip:before {
+/* .tooltip:before {
     content: "";
-    position: absolute;
     opacity: 0;
     pointer-events: none;
     left: 50%;
@@ -68,62 +68,47 @@ button {
     border-style: solid;
     border-width: 10px 10px 0 10px;
     border-color: dodgerblue transparent transparent transparent;
-}
+} */
 
 .tooltip:after {
-    text-transform: none;
     content: attr(data-tooltip);
-    font-size: 11px;
     position: absolute;
-    color: #fff;
-    background: dodgerblue;
-    padding: 8px 12px;
+    left: 50%;
+    top: 1.0rem;
+    transform: translate3d(-50%, 1.0rem, 0);
+    transition: all 0.3s ease;
+    transition-delay: 1.2s;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
-    max-width: 200px;
+    max-width: 200px !important;
     opacity: 0;
     pointer-events: none;
-    left: 50%;
-    top: 0;
     border-radius: 4px;
-    transform: translate3d(-50%, 0%, 0);
-    transition: all 0.3s ease;
-    transition-delay: 1.2s;
+    background: dodgerblue;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 14px;
+    text-transform: none;
+    white-space: pre-line;
+    padding: 4px 8px;
 }
 
-.notfound:after {
-    background: red;
-}
-
-.notfound:before {
-    border-color: red transparent transparent transparent;
-}
 
 .tooltip:hover {
     background-color: rgba(0, 0, 0, 0.12);
 }
 
-.tooltip:hover:before,
 .tooltip:hover:after {
     opacity: 1;
 }
 
-.tooltip:hover:before {
-    transform: translate3d(-50%, calc(-50% - 4px), 0);
-}
-
-.tooltip:hover:after {
-    transform: translate3d(-50%, calc(-80% - 16px), 0);
-}
-
-.tooltip .tooltip-content::after {
-    background-color: #05a8ff;
-    content: "";
-    height: 10px;
-    position: absolute;
-    transform: rotate(45deg);
-    width: 10px;
+.tooltip-not-found:after {
+    color: white;
+    font-weight: bold;
+    background: red;
 }
 
 /*TOGGLE SWITCH*/
