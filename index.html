@@ -5,12 +5,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="theme-color" content="#0099D8">
-  <meta name="title" content="Mashups Word Lookup - Tooltips Demo" />
-  <meta name="description" content="One-Click Instant Dictionary Word Lookup Tooltips Demo" />
+  <meta name="title" content="Mashups Word Lookup - Widget Bar Demo" />
+  <meta name="description" content="One-Click Instant Dictionary Word Lookup Widget Bar Demo" />
   <meta name="language" content="EN-US" />
   <meta name="creator" content="John Chase - the Art of Tech, LLC" />
   <meta name="created" content="2022-03-29" />
-  <title>Mashups Word Lookup - Tooltips Demo</title>
+  <title>Mashups Word Lookup - Widget Bar Demo</title>
   <link rel="icon" href="../../favicon.ico?v=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6029e1b20c.js" crossorigin="anonymous"></script>
@@ -27,15 +27,15 @@
 <body>
   <!--#include virtual="/includes/mashups-word-lookup-header.html"-->
   <main>
-    <h2>One-Click Instant Dictionary Tooltips Mashup Demo</h2>
-    <div>
+    <h2>One-Click Instant Dictionary Widget Bar Mashup Demo</h2>
+    <div id="def-div">
       <label class="switch">
         <span class="defs">Definitions</span>&nbsp;
         <input id="def-toggle" type="checkbox">
-        <span id="help" class="hidden emph">Hover over a word to highlight, then click/tap to show definition
+        <span id="def-help" class="hidden emph">Hover over a word to highlight, then click/tap to show definition
           tooltip.</span>
       </label>
-    </div>
+    </div>    
     <p>Choose an API from the options below to load random content, then enable Definitions above to lookup word
       meanings.</p>
     <select name="api" id="api-sel" class="sel">

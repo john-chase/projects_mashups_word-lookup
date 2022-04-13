@@ -162,7 +162,7 @@ const wordLookupRequest = async (lookup) => {
 let spans;
 const toggle = document.querySelector("#def-toggle")
 const apiSel = document.querySelector("#api-sel")
-const help = document.querySelector("#help")
+const help = document.querySelector("#def-help")
 const p = document.getElementsByTagName("p");
 /*Load a new paragraph*/
 newBtn.addEventListener('click', (e) => {
@@ -225,10 +225,12 @@ function onmouseoutspan() {
 function onclickspan(e) {
     // wordLookupRequest("<script>alert('gotcha!')</script>").then((resolvedValue) => console.log(resolvedValue))
     const tag = e.target;
-    // console.log(tag);
+    const defHelp = document.getElementById("def-help");
+    const defDiv = document.getElementsByClassName("def-div")[0];
+    defHelp.innerText = "";
+    console.log(defHelp);
     wordLookupRequest(e.target.innerText).then((word) => {
-        // console.log(word, tag)
-        tag.setAttribute('data-tooltip', word)
-        word.includes("Sorry, we could not find ") ? tag.classList.add('tooltip', 'notfound') : tag.classList.add('tooltip')
+        defHelp.innerHTML = word;
+        word.includes("Sorry, we could not find ") ? help.classList.add('tooltip', 'notfound') : help.classList.add('tooltip')
     })
 }
