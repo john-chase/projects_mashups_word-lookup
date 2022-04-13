@@ -50,13 +50,11 @@
     }
 
     /*DEFINITION GROUP*/
-    .div {
+    #def-toggle {
         background-color: dodgerblue;
-        position: fixed;
         z-index: 99999999;
         min-width: 100%;
         height: 32px;
-        top: 0;
         text-align: left;
         line-height: 1rem;
     }
