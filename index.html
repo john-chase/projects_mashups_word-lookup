@@ -2,71 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="theme-color" content="#0099D8">
-  <meta name="title" content="Mashups Word Lookup - Widget Bar Demo" />
-  <meta name="description" content="One-Click Instant Dictionary Word Lookup Widget Bar Demo" />
-  <meta name="language" content="EN-US" />
-  <meta name="creator" content="John Chase - the Art of Tech, LLC" />
-  <meta name="created" content="2022-03-29" />
-  <title>Mashups Word Lookup - Widget Bar Demo</title>
-  <link rel="icon" href="../../favicon.ico?v=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/6029e1b20c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/global-styles.css">
-  <link rel="stylesheet" href="/css/local-styles.css">
-  <link rel="stylesheet" href="css/local-styles.css">
-  <script
-    src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces6%2Cfetch%2CPromise%2CArray.prototype.includes&flags=gated">
-  </script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="js/index.js" data-type="module" defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#0099D8">
+    <meta name="title" content="Mashups Word Lookup - Widget Bar Demo" />
+    <meta name="description" content="One-Click Instant Dictionary Word Lookup Widget Bar Demo" />
+    <meta name="language" content="EN-US" />
+    <meta name="creator" content="John Chase - the Art of Tech, LLC" />
+    <meta name="created" content="2022-03-29" />
+    <title>Mashups Word Lookup - Widget Bar Demo</title>
+    <link rel="icon" href="../../favicon.ico?v=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6029e1b20c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/global-styles.css">
+    <link rel="stylesheet" href="/css/local-styles.css">
+    <link rel="stylesheet" href="css/local-styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces6%2Cfetch%2CPromise%2CArray.prototype.includes&flags=gated">
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="js/index.js" data-type="module" defer></script>
 </head>
 
 <body>
-  <!--#include virtual="/includes/mashups-word-lookup-header.html"-->
-  <main>
+    <!--#include virtual="/includes/mashups-word-lookup-header.html"-->
     <h2>One-Click Instant Dictionary Widget Bar Mashup Demo</h2>
-    <div id="def-div">
-      <label class="switch">
-        <span class="defs">Definitions</span>&nbsp;
-        <input id="def-toggle" type="checkbox">
-        <span id="def-help" class="hidden emph">Hover over a word to highlight, then click/tap to show definition
-          tooltip.</span>
-      </label>
-    </div>    
-    <p>Choose an API from the options below to load random content, then enable Definitions above to lookup word
-      meanings.</p>
-    <select name="api" id="api-sel" class="sel">
-      <option value="0">Options...</option>
-      <option value="1">Fun facts</option>
-      <option value="2">Useless Facts</option>
-      <option value="3">Quotable Quotes</option>
-      <option value="4">Daily Horoscope</option>
-      <option value="5">Faker Texts</option>
-    </select>
-    <button class="new-btn hidden">Load Content</button>
-    <section style="margin-top:2rem;">
-      <h3 style="text-align:left">Notes</h3>
-      This application makes use of the <a href="https://dictionaryapi.dev/">Free Dictionary API</a> to define words and
-      free no-key APIs for random content:<br>
-      <ul>
-        <!-- <li>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></li> -->
-        <li>Get more fun facts and biology terms at <a
-            href="https://aakhilv.notion.site/aakhilv/api-aakhilv-me-a57b3dc3e4e2449ba4dcce5ddee1c684"
-            target="_blank">api.aakhilv.me</a></li>
-        <li>Totally useless facts originate <a href="https://uselessfacts.jsph.pl" target="_blank">here</a></li>
-        <li>Quotable quotes provided by <a href="https://github.com/lukePeavey/quotable" target="_blank">Quotable</a>
-        </li>
-        <li>Daily Horoscope courtesy of <a href="https://aztro.sameerkumar.website/" target="_blank">Aztro</a></li>
-        <li>Faker Texts loaded from <a href="https://fakerapi.it/en" target="_blank">Faker API</a></li>
-      </ul>
-      There are mobile device apps that accomplish this functionality, but my goal is to produce a bookmarklet that
-      would enable lookups for any webpage paragraph content.
-    </section>
-  </main>
-  <!--#include virtual="/includes/footer.html" -->
+    <div id="def-div" class="defs">
+        <label class="switch">
+            <span class="defs">Definitions</span>&nbsp;
+            <input id="def-toggle" class="input" type="checkbox">
+            <span id="def-help" class="hidden emph">Hover over a word to highlight, then click/tap to show definition
+                tooltip.</span>
+        </label>
+    </div>
+    <main>
+        <p>Choose an API from the options below to load random content, then enable Definitions above to lookup word
+            meanings.</p>
+        <select name="api" id="api-sel" class="sel">
+            <option value="0">Options...</option>
+            <option value="1">Fun facts</option>
+            <option value="2">Useless Facts</option>
+            <option value="3">Quotable Quotes</option>
+            <option value="4">Daily Horoscope</option>
+            <option value="5">Faker Texts</option>
+        </select>
+        <button class="new-btn hidden">Load Content</button>
+        <section style="margin-top:2rem;">
+            <h3 style="text-align:left">Notes</h3>
+            This application makes use of the <a href="https://dictionaryapi.dev/">Free Dictionary API</a> to define words and
+            free no-key APIs for random content:<br>
+            <ul>
+                <!-- <li>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></li> -->
+                <li>Get more fun facts and biology terms at <a href="https://aakhilv.notion.site/aakhilv/api-aakhilv-me-a57b3dc3e4e2449ba4dcce5ddee1c684" target="_blank">api.aakhilv.me</a></li>
+                <li>Totally useless facts originate <a href="https://uselessfacts.jsph.pl" target="_blank">here</a></li>
+                <li>Quotable quotes provided by <a href="https://github.com/lukePeavey/quotable" target="_blank">Quotable</a>
+                </li>
+                <li>Daily Horoscope courtesy of <a href="https://aztro.sameerkumar.website/" target="_blank">Aztro</a></li>
+                <li>Faker Texts loaded from <a href="https://fakerapi.it/en" target="_blank">Faker API</a></li>
+            </ul>
+            There are mobile device apps that accomplish this functionality, but my goal is to produce a bookmarklet that
+            would enable lookups for any webpage paragraph content.
+        </section>
+    </main>
+    <!--#include virtual="/includes/footer.html" -->
 </body>
 
 </html>

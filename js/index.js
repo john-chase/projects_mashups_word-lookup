@@ -190,6 +190,7 @@ const toggleOFF = () => {
 }
 /*Break paragraph into wordspans and add listeners*/
 toggle.onchange = () => {
+    console.log(toggle.checked);
     if (toggle.checked) {
         help.classList.remove('hidden')
         for (let i = 0; i < p.length; i++) {

@@ -2,11 +2,11 @@
     main {
         margin: 1rem 3rem 10rem 3rem;
     }
-    
+
     h2 {
         font-size: 1.1em;
     }
-    
+
     .p {
         border: 1px solid dodgerblue;
         border-radius: .5rem;
@@ -15,29 +15,31 @@
         font-size: 15px;
         line-height: 1.2;
     }
-    
+
     p span:hover {
         background: yellow;
         cursor: pointer;
     }
-    
-    .defs {
-        padding: 0 0 12px 4px;
-        text-align: center;
-        color: dodgerblue;
-        font-weight: bold;
-        font-style: italic;
-        margin: 0.5rem 0;
-    }
-    
+
+
     .emph {
         font-style: italic;
     }
-    
+
+    .defs {
+        background-color: dodgerblue;
+        min-width: 100%;
+        height: 32px;
+        text-align: left;
+        line-height: 1rem;
+        color: black;
+        padding-left: 0.5rem;        
+    }
+
     .sel {
         height: 1.3rem;
     }
-    
+
     button {
         color: white;
         background-color: dodgerblue;
@@ -50,11 +52,7 @@
     }
 
     /*DEFINITION GROUP*/
-    #def-toggle {
-        background-color: dodgerblue;
-        z-index: 99999999;
-        min-width: 100%;
-        height: 32px;
+    #def-div {
         text-align: left;
         line-height: 1rem;
     }
@@ -124,20 +122,26 @@
     }
 
     /*TOGGLE SWITCH*/
+    /*TOGGLE SWITCH*/
     input[type=checkbox],
     .input {
         margin: 0;
         -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
         padding: 0 0 0 30px;
         border-radius: 16px;
+        background: -o-radial-gradient(circle 12px, white 100%, transparent calc(100% + 1px)) #ccc -16px;
         background: radial-gradient(circle 12px, white 100%, transparent calc(100% + 1px)) #ccc -16px;
+        -webkit-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
         transition: 0.3s ease-in-out;
         position: inherit;
         height: 32px;
         width: 64px;
         top: 0;
         bottom: 0;
+        -webkit-box-shadow: none;
         box-shadow: none;
     }
 
