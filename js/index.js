@@ -140,17 +140,25 @@ const wordLookupRequest = async (lookup) => {
         const sorry = `Sorry, we could not find "${lookup}" in the dictionary, or the service is down. You can try the search again at later time or head to the web instead.`
         if (response.status >= 200 && response.status <= 299) {
             let json = await response.json();
-            let phon = "";
+            let phon = ""; 
             if (json[0]) {
+                console.log(json[0]);
                 const word = json[0].word;
                 const speechPart = json[0].meanings[0].partOfSpeech ? json[0].meanings[0].partOfSpeech : '';
                 const phonText = (json[0].phonetics.length && json[0].phonetics[0].text) ? json[0].phonetics[0].text : '';
+                let audio = '';
                 if (phonText.length) {
-                    phon = ` (${phonText}) `
+                    phon = ` (${phonText})`
+                }
+                if(json[0].phonetics.length) {
+                    const phonetics = json[0].phonetics
+                    phonetics.forEach(item => {
+                        if(item.audio !== undefined && item.audio.length) return audio = `<a href="${item.audio}" target="_blank"><svg class="def-svg" width="25px" height="20px" viewBox="-1 -14 40 40" xmlns="http://www.w3.org/2000/svg"><title>file_type_audio</title><path d="M17.229,4a.9.9,0,0,0-.569.232l-7.6,6.32a1.158,1.158,0,0,1-.955.328H3.208A1.2,1.2,0,0,0,2,12.088v7.826A1.2,1.2,0,0,0,3.208,21.12H8.1a1.158,1.158,0,0,1,.955.328l7.6,6.32c.521.433,1.081.224,1.081-.289V4.522A.494.494,0,0,0,17.229,4ZM27,6.3,25.209,8.093a14.708,14.708,0,0,1,0,15.844l1.785,1.776A17.19,17.19,0,0,0,27,6.3Zm-4.333,4.323L20.905,12.4a6.035,6.035,0,0,1,0,7.237l1.756,1.756a8.554,8.554,0,0,0,.01-10.769Z" style="fill:#00007f"/></svg></a>`;
+                    });
+                    console.log(audio);
                 }
                 const defo = json[0].meanings[0].definitions[0].definition ? json[0].meanings[0].definitions[0].definition : '';
-                return `${word} - ${speechPart}${phon}: ${defo}`
-
+                return `${word.toUpperCase()} ${audio}- ${speechPart}${phon}: ${defo}`
             } else {
                 return sorry;
             }
@@ -182,7 +190,6 @@ apiSel.addEventListener('change', (e) => {
 /*Remove Spans and toggle OFF*/
 const toggleOFF = () => {
     help.classList.add('hidden')
-    toggle.checked = false;
     for (let i = 0; i < p.length; i++) {
         if (p[i] == undefined) continue;
         p[i].innerHTML = p[i].innerHTML.replace(/<[^>^br]*>/g, '');
@@ -229,7 +236,6 @@ function onclickspan(e) {
     const defHelp = document.getElementById("def-help");
     const defDiv = document.getElementsByClassName("def-div")[0];
     defHelp.innerText = "";
-    console.log(defHelp);
     wordLookupRequest(e.target.innerText).then((word) => {
         defHelp.innerHTML = word;
         word.includes("Sorry, we could not find ") ? help.classList.add('tooltip', 'notfound') : help.classList.add('tooltip')
