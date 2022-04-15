@@ -1,4 +1,4 @@
-# Mashup API Project: Word Lookup
+# Mashup API Project: Word Lookup (Definition in Bar version)
 ### This application uses the [Free Dictionary API](https://dictionaryapi.dev/) to define words and free no-key APIs for random content including:
 - [Notion's Fun Facts](https://aakhilv.notion.site/fun-bea0f2ca5aaa411f93a3a9fa1699ce39)
 - [Random Useless Facts](https://uselessfacts.jsph.pl/P)
